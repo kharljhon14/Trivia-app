@@ -1,22 +1,14 @@
-export default function Answers() {
-  return (
-    <div className="answers">
-      <div className="answer">
-        <input type="radio" name="answer" />
-        <label htmlFor="">Apple</label>
-      </div>
-      <div className="answer">
-        <input type="radio" name="answer" />
-        <label htmlFor="">Apple</label>
-      </div>
-      <div className="answer">
-        <input type="radio" name="answer" />
-        <label htmlFor="">Apple</label>
-      </div>
-      <div className="answer">
-        <input type="radio" name="answer" />
-        <label htmlFor="">Apple</label>
-      </div>
+interface Props {
+  answers: string[];
+}
+
+export default function Answers({ answers }: Props) {
+  const renderAnswers = answers.map((answer) => (
+    <div key={answer} className="answer">
+      <input type="radio" name="answer" id={answer} />
+      <label htmlFor={answer}>{answer}</label>
     </div>
-  );
+  ));
+
+  return <div className="answers">{renderAnswers}</div>;
 }

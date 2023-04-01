@@ -8,10 +8,18 @@ const scoreSclice = createSlice({
   name: "score",
   initialState,
   reducers: {
-    startQuiz: (state) => {},
+    reset: (state) => {
+      state.score = 0;
+    },
+    add: (state, action: PayloadAction<number>) =>{
+      state.score += action.payload
+    },
+    minus:(state, action: PayloadAction<number>) =>{
+      state.score -= action.payload
+    }
   },
 });
 
-export const { startQuiz } = scoreSclice.actions;
+export const { reset } = scoreSclice.actions;
 
 export default scoreSclice.reducer;

@@ -3,6 +3,7 @@ export interface Question {
   id: string;
   correctAnswer: string;
   incorrectAnswers: string[];
+  selections?: string[];
   question: string;
   difficulty: string;
 }

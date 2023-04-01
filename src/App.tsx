@@ -1,22 +1,27 @@
-import { useEffect } from "react";
-import { Question } from "./components";
-import { useGetQuestionsQuery } from "./store/thunks/questions";
-import { useAppDispatch } from "./store";
-import { startQuiz } from "./store/action";
+import { useEffect, useState } from 'react';
+import { Menu, Question } from './components';
+import { useGetQuestionsQuery } from './store/thunks/questions';
+import questionBuilder from './helpers/questionsBuilder';
+import { Question as QuestionType } from './types/question';
 
 export default function App() {
-  const { data, isSuccess, isLoading, isError } = useGetQuestionsQuery();
-
-  const dispatch = useAppDispatch();
+  const { data, isSuccess, isError, isLoading } = useGetQuestionsQuery();
+  const [questions, setQuestions] = useState<QuestionType[]>([]);
+  const [currentQuestion, setCurrentQuestion] = useState<QuestionType>();
 
   useEffect(() => {
     if (isSuccess) {
-      console.log(data);
+      const newQuestions = data.map((question) => questionBuilder(question).randomizeOrderOfAnswer().build());
+      if (newQuestions) {
+        setQuestions(newQuestions);
+        setCurrentQuestion(newQuestions[0]);
+      }
     }
-  }, []);
+  }, [isSuccess, isError]);
   return (
     <div className="app">
-      <Question question={data[0]} />
+      <Menu />
+      {currentQuestion ? <Question question={currentQuestion} /> : null}
     </div>
   );
 }
