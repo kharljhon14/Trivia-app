@@ -1,7 +1,7 @@
-.menu {
+.result {
   position: absolute;
-  color: $color-primary-light;
-  background-color: $color-secondary-dark;
+  color: $color-secondary-dark;
+  background-color: $color-secondary-light;
   width: 80rem;
   height: 60rem;
   display: flex;
@@ -17,23 +17,31 @@
     text-align: center;
 
     &-title {
-      font-size: 5rem;
-      font-weight: 500;
+      font-size: 6rem;
+      font-weight: 400;
       letter-spacing: 1.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     &-subtitle {
-      font-size: 1.6rem;
-      text-decoration: underline;
+      font-size: 5rem;
+      letter-spacing: 1.5rem;
     }
+  }
+  &.hidden {
+    color: transparent;
+    height: 0;
+    width: 0;
+    padding: 0;
+    opacity: 0;
+    overflow: hidden;
   }
 
   & button {
     border: none;
     border-radius: 1.5rem;
-    color: inherit;
-    background-color: $color-secondary-light;
+    color: $color-primary-light;
+    background-color: $color-secondary-dark;
     font-size: 1.8rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -45,14 +53,5 @@
       background-color: $color-primary-light;
       color: $color-secondary-light;
     }
-  }
-
-  &.hidden {
-    color: transparent;
-    height: 0;
-    width: 0;
-    padding: 0;
-    opacity: 0;
-    overflow: hidden;
   }
 }

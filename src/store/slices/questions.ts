@@ -19,7 +19,7 @@ const questionSlice = createSlice({
     setQuestions: (state, action: PayloadAction<Question[]>) => {
       state.questions = action.payload;
     },
-    setCurrentQuestion: (state, action: PayloadAction<Question>) => {
+    setCurrentQuestion: (state, action: PayloadAction<Question | undefined>) => {
       state.currentQuestion = action.payload;
     },
   },

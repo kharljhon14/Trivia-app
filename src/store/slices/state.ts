@@ -13,6 +13,7 @@ const stateSlice = createSlice({
   reducers: {
     start: (state, action: PayloadAction<boolean>) => {
       state.started = action.payload;
+      state.currentIndex = 0;
     },
     loading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload;
