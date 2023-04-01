@@ -4,6 +4,7 @@ const initialState = {
   loading: false,
   started: false,
   ended: false,
+  currentIndex: 0,
 };
 
 const stateSlice = createSlice({
@@ -19,9 +20,12 @@ const stateSlice = createSlice({
     end: (start, action: PayloadAction<boolean>) => {
       start.ended = action.payload;
     },
+    incrementIndex: (state) => {
+      state.currentIndex += 1;
+    },
   },
 });
 
-export const { start, loading, end } = stateSlice.actions;
+export const { start, loading, end, incrementIndex } = stateSlice.actions;
 
 export default stateSlice.reducer;

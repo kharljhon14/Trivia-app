@@ -1,5 +1,5 @@
-import { Question } from "../../types/question";
-import baseApi from "./base";
+import { Question } from '../../types/question';
+import baseApi from './base';
 
 const triviaQuestionsAPi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -7,7 +7,7 @@ const triviaQuestionsAPi = baseApi.injectEndpoints({
       query: () => ({
         url: `questions`,
       }),
-      providesTags: ["Questions"],
+      providesTags: ['Questions'],
     }),
   }),
 });

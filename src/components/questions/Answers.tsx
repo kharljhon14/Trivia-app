@@ -1,11 +1,12 @@
 interface Props {
   answers: string[];
+  handleChange: (value: string) => void;
 }
 
-export default function Answers({ answers }: Props) {
+export default function Answers({ answers, handleChange }: Props) {
   const renderAnswers = answers.map((answer) => (
     <div key={answer} className="answer">
-      <input type="radio" name="answer" id={answer} />
+      <input onChange={(e) => handleChange(e.target.value)} type="radio" value={answer} name="answer" id={answer} />
       <label htmlFor={answer}>{answer}</label>
     </div>
   ));
