@@ -16,7 +16,7 @@ export default function Result({ handleRefetch }: Props) {
     dispatch(start(false));
     dispatch(setQuestions([]));
     dispatch(setCurrentQuestion(undefined));
-    dispatch(reset);
+    dispatch(reset());
     handleRefetch();
   };
 
