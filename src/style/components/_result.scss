@@ -11,7 +11,7 @@
   padding: 6rem 3rem 0;
   border-radius: 1.5rem;
   box-shadow: 0.5rem 1rem 1rem rgba($color-primary-dark, $alpha: 0.3);
-  transition: all 0.4s ease;
+  transition: all 0.4s ease, opacity 0s;
 
   &__header {
     text-align: center;
